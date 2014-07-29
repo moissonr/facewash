@@ -10,7 +10,7 @@ var clean_copy = clean_copy || (function(){
     if (tabUrl.match(/^https?:\/\/www.facebook.com/) === null) return false;
 
     var id;
-    id = tabUrl.match(/\/(\d+)\//);
+    id = tabUrl.match(/\/(\d+)(?=\/|$)/);
     if (id !== null && id[1] !== null) return id[1];
     id = tabUrl.match(/fbid=(\d+)/);
     if (id !== null && id[1] !== null) return id[1];
