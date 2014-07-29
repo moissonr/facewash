@@ -1,3 +1,3 @@
 # Facewash #
 
-Chrome extension, copies the current facebook page URL while cleaning it from unnecessary parameters: http://www.facebook.com/123456789
+Chrome extension which copies the current facebook page URL while cleaning it from unnecessary parameters: everything in the form of http://www.facebook.com/123456789
