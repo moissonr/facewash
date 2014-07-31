@@ -29,7 +29,9 @@ var clean_copy = clean_copy || (function(){
     }).done(function(data) {
       idStr = data.id;
     });
-    if (idStr !== null && idStr !== "") return "https://www.facebook.com/" + idStr;
+    if (typeof idStr !== 'undefined' &&
+        idStr !== null &&
+        idStr !== "") return "https://www.facebook.com/" + idStr;
     return tabUrl;
   };
 

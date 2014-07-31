@@ -27,7 +27,7 @@ var cleanKopy = {
 
   kopy: function (tab) {
     this.injectedMethod(tab, 'kopy', function(response){
-      if (typeof response.data === 'undefined' || response.data === false){
+      if (response.data === false){
         return window.close();
       }
       $('#clean-link').text(response.data);
