@@ -30,7 +30,7 @@ var cleanKopy = {
       if (typeof response.data === 'undefined' || response.data === false){
         return window.close();
       }
-      $('#clean-link').text("https://www.facebook.com/" + response.data);
+      $('#clean-link').text(response.data);
       $('#clean-link').selectText();
       return true;
     });

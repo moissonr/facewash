@@ -9,13 +9,13 @@ var clean_copy = clean_copy || (function(){
     var tabUrl = document.URL;
     if (tabUrl.match(/^https?:\/\/www.facebook.com/) === null) return false;
 
-    var id;
+    var id, idStr;
     id = tabUrl.match(/\/(\d+)(?=\/|$)/);
-    if (id !== null && id[1] !== null) return id[1];
+    if (id !== null && id[1] !== null) return "https://www.facebook.com/" + id[1];
     id = tabUrl.match(/fbid=(\d+)/);
-    if (id !== null && id[1] !== null) return id[1];
+    if (id !== null && id[1] !== null) return "https://www.facebook.com/" + id[1];
     id = tabUrl.match(/\Wid=(\d+)/);
-    if (id !== null && id[1] !== null) return id[1];
+    if (id !== null && id[1] !== null) return "https://www.facebook.com/" + id[1];
 
     var graphUrl = tabUrl.replace('http://www', 'http://graph');
     graphUrl = tabUrl.replace('https://www', 'https://graph');
@@ -27,10 +27,10 @@ var clean_copy = clean_copy || (function(){
       cache: true,
       async: false
     }).done(function(data) {
-      id = data.id;
+      idStr = data.id;
     });
-    if (id !== null && id !== "") return id;
-    return false;
+    if (idStr !== null && idStr !== "") return "https://www.facebook.com/" + idStr;
+    return tabUrl;
   };
 
   // This tells the script to listen for
