@@ -17,8 +17,8 @@ var clean_copy = clean_copy || (function(){
     id = tabUrl.match(/\Wid=(\d+)/);
     if (id !== null && id[1] !== null) return "https://www.facebook.com/" + id[1];
 
-    var graphUrl = tabUrl.replace('http://www', 'http://graph');
-    graphUrl = tabUrl.replace('https://www', 'https://graph');
+    var graphUrl = tabUrl.replace(/https?:\/\/www/, 'http://graph');
+    graphUrl = graphUrl.replace(/\?.+/, '');
     $.ajax({
       type: "GET",
       url: graphUrl,
